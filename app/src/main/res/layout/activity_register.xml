@@ -73,7 +73,7 @@
         android:layout_marginTop="28dp"
         android:background="@drawable/button"
         android:padding="17dp"
-        android:text="register "
+        android:text="Register"
         android:textAllCaps="false"
         android:textColor="#ffff"
         android:textSize="18dp"
