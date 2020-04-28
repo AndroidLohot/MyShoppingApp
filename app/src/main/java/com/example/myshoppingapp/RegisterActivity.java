@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,9 +39,11 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister = (Button) findViewById(R.id.register_btn);
         lodingBar = new ProgressDialog(this);
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        btnRegister.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
 
                 createAccount();
 
@@ -51,7 +52,8 @@ public class RegisterActivity extends AppCompatActivity {
                 edPassword.setText("");
 
             }
-        });
+        }
+        );
     }
 
     private void createAccount() {
@@ -109,9 +111,9 @@ public class RegisterActivity extends AppCompatActivity {
 
                     HashMap<String,Object> userData = new HashMap<>();
 
-                    userData.put("Name",name);
-                    userData.put("Phone",phone);
-                    userData.put("Password",password);
+                    userData.put("userName",name);
+                    userData.put("userPhone",phone);
+                    userData.put("userPassword",password);
 
                     RootRef.child("Users").child(phone).updateChildren(userData)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -123,7 +125,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                                         Toast.makeText(RegisterActivity.this,"Congratulations your account is create",Toast.LENGTH_LONG).show();
                                         lodingBar.dismiss();
-                                        Intent intent=new Intent(RegisterActivity.this,loginActivity.class);
+                                        Intent intent=new Intent(RegisterActivity.this, LoginActivity.class);
                                         startActivity(intent);
                                     }
                                     else
